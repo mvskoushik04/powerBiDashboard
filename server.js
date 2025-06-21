@@ -21,10 +21,11 @@ database.connect((err) => {
 
 app.use(express.urlencoded({ extended: true }))
 
-app.get('/', (req, res) => {
-    const htmlfile=path.join(__dirname, 'index.html');
-    res.sendFile(htmlfile);
-})
+app.get('/handleform', (req, res) => {
+    const dashboardFile = path.join(__dirname, 'handleform.html');
+    res.sendFile(dashboardFile);
+});
+
 
 app.post('/handleform',(req,res) => {
     try{
