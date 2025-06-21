@@ -2,12 +2,13 @@ const express= require('express');
 const path = require('path');
 const app = express();
 const mysql2 = require('mysql2');
+require('dotenv').config();
 
 const database =mysql2.createConnection({
-    host:"127.0.0.1",
-    user:"root",
-    password:"Koushik@4",
-    database:"student_data"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME
 });
 
 database.connect((err) => {
